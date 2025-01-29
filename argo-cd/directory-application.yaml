@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: coreteza-gcp
+  name: training
   namespace: argocd
 spec:
   project: default
