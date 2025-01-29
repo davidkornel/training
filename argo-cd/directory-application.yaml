@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     path: argo-cd/k8s-resources/
-    repoURL: git@github.com:davidkornel/training.git
+    repoURL: https://github.com/davidkornel/training.git
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
