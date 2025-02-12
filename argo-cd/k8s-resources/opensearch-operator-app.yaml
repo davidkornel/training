@@ -18,7 +18,7 @@ spec:
     ref: values-repo
   destination:
     server: https://kubernetes.default.svc
-    namespace: mimir
+    namespace: opensearch
   syncPolicy:
     automated:
       prune: true
