@@ -3,7 +3,7 @@ prometheus:
   prometheusSpec:
     enableRemoteWriteReceiver: true
     remoteWrite:
-    - url: http://mimir-nginx.monitoring.svc.cluster.local:80/api/v1/push
+    - url: http://mimir-distributed-nginx.monitoring.svc.cluster.local:80/api/v1/push
     # storageSpec:
     #   volumeClaimTemplate:
     #     spec:

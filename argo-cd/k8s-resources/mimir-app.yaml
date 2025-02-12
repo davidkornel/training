@@ -8,7 +8,7 @@ spec:
   sources:
 # helm install my-mimir-distributed grafana/mimir-distributed --version 5.7.0-weekly.329
   - repoURL: https://grafana.github.io/helm-charts
-    targetRevision: 5.7.0-weekly.329
+    targetRevision: 5.5.0
     chart: mimir-distributed
     helm:
       releaseName: mimir-distributed
