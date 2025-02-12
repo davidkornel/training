@@ -13,8 +13,8 @@ spec:
       releaseName: kube-prometheus-stack
       valueFiles:
       - $values-repo/releases/kps/values.yaml
-  - repoURL: https://github.com/davidkornel/training.git  # Can point to either a Helm chart repo or a git repo.
-    targetRevision: HEAD  # For Helm, this refers to the chart version.
+  - repoURL: https://github.com/davidkornel/training.git
+    targetRevision: HEAD
     ref: values-repo
   destination:
     server: https://kubernetes.default.svc

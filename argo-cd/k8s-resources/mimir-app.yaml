@@ -6,7 +6,6 @@ metadata:
 spec:
   project: default
   sources:
-# helm install my-mimir-distributed grafana/mimir-distributed --version 5.7.0-weekly.329
   - repoURL: https://grafana.github.io/helm-charts
     targetRevision: 5.5.0
     chart: mimir-distributed
@@ -14,8 +13,8 @@ spec:
       releaseName: mimir-distributed
       valueFiles:
       - $values-repo/releases/mimir/values.yaml
-  - repoURL: https://github.com/davidkornel/training.git  # Can point to either a Helm chart repo or a git repo.
-    targetRevision: HEAD  # For Helm, this refers to the chart version.
+  - repoURL: https://github.com/davidkornel/training.git
+    targetRevision: HEAD
     ref: values-repo
   destination:
     server: https://kubernetes.default.svc
