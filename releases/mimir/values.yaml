@@ -1,0 +1,8 @@
+# nginx:
+#   ingress:
+#     enabled: true
+#     ingressClassName: nginx
+#     hosts:
+#       - host: my-nginx-ingress.example.com
+#         paths:
+#           - path: /
