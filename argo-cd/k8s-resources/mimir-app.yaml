@@ -19,7 +19,7 @@ spec:
     ref: values-repo
   destination:
     server: https://kubernetes.default.svc
-    namespace: monitoring
+    namespace: mimir
   syncPolicy:
     automated:
       prune: true
