@@ -2,6 +2,8 @@ general:
   serviceName: opersearch-cluster
 dashboards:
   enable: true
+  tls:
+    enable: false
   replicas: 1
   resources:
     requests:
