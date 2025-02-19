@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: opensearch-operator
+  name: opensearch-cluster
   namespace: argocd
 spec:
   project: default
   sources:
   - repoURL: https://opensearch-project.github.io/opensearch-k8s-operator
-    targetRevision: 2.7.0
-    chart: opensearch-operator
+    targetRevision: 3.0.0
+    chart: opensearch-cluster
     helm:
-      releaseName: opensearch-operator
+      releaseName: opensearch-cluster
       valueFiles:
-      - $values-repo/releases/opensearch-operator/values.yaml
+      - $values-repo/releases/opensearch-cluster/values.yaml
   - repoURL: https://github.com/davidkornel/training.git
     targetRevision: HEAD
     ref: values-repo
