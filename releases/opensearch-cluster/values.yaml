@@ -4,6 +4,7 @@ dashboards:
   enable: true
   tls:
     enable: false
+    secret: {}
   replicas: 1
   resources:
     requests:
