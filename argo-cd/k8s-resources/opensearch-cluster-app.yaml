@@ -30,4 +30,4 @@ spec:
     - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan
     - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
     - ApplyOutOfSyncOnly=true #general
-    - ServerSideApply=true
+    - ServerSideApply=false
