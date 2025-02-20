@@ -1,30 +1,29 @@
-general:
-  serviceName: opersearch-cluster
-dashboards:
-  enable: true
-  tls:
-    enable: false
-    secret: {}
-  replicas: 1
-  resources:
-    requests:
-        memory: "500Mi"
-        cpu: "200m"
-    limits:
-        memory: "800Mi"
-        cpu: "500m"
-nodePools:
-  - component: nodes
+cluster:
+  general:
+    serviceName: opersearch-cluster
+  dashboards:
+    enable: true
+    tls:
+      enable: false
     replicas: 1
-    diskSize: "2Gi"
     resources:
-        requests:
-          memory: "600Mi"
+      requests:
+          memory: "500Mi"
+          cpu: "200m"
+      limits:
+          memory: "800Mi"
           cpu: "500m"
-        limits:
-          memory: "1Gi"
-          cpu: "800m"
-    # roles:
-    #   - "cluster_manager"
-    #   - "data"
-    #   - "master"
+  nodePools:
+    - component: nodes
+      replicas: 1
+      diskSize: "2Gi"
+      resources:
+          requests:
+            memory: "600Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "800m"
+      roles:
+        - "data"
+        - "master"
