@@ -7,20 +7,21 @@ resources:
   limits:
     cpu: "1000m"
     memory: "1536Mi"
-logstashPipeline: |
-  input {
-    syslog {
-      port = 514
-      id = "my_first_syslog"
+logstashPipeline:
+  logstash.conf: |
+    input {
+      syslog {
+        port = 514
+        id = "my_first_syslog"
+      }
     }
-  }
 
-  output {
-    opensearch {
-      hosts => ["https://opensearch-cluster.opensearch:9200"]
-      index => "syslog-%{+YYYY.MM.dd}"
-      user => "admin"
-      password => "admin"
-      ssl_certificate_verification => false
+    output {
+      opensearch {
+        hosts => ["https://opensearch-cluster.opensearch:9200"]
+        index => "syslog-%{+YYYY.MM.dd}"
+        user => "admin"
+        password => "admin"
+        ssl_certificate_verification => false
+      }
     }
-  }
