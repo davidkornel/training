@@ -1,11 +1,8 @@
 cluster:
   general:
-    serviceName: opersearch-cluster
+    serviceName: opensearch-cluster
   dashboards:
     enable: true
-    tls:
-      enable: false
-    replicas: 1
     resources:
       requests:
           memory: "500Mi"
@@ -14,9 +11,9 @@ cluster:
           memory: "800Mi"
           cpu: "500m"
   nodePools:
-    - component: nodes
-      replicas: 1
+    - component: masters
       diskSize: "2Gi"
+      replicas: 3
       resources:
           requests:
             memory: "600Mi"
@@ -25,5 +22,5 @@ cluster:
             memory: "1Gi"
             cpu: "800m"
       roles:
+        - "cluster_manager"
         - "data"
-        - "master"
