@@ -7,6 +7,9 @@ resources:
   limits:
     cpu: "1000m"
     memory: "1536Mi"
+extraPorts:
+  - containerPort: 514
+    name: syslog
 logstashPipeline:
   logstash.conf: |
     input {
