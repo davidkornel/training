@@ -11,8 +11,8 @@ logstashPipeline:
   logstash.conf: |
     input {
       syslog {
-        port = 514
-        id = "my_first_syslog"
+        port => 514
+        id => "my_first_syslog"
       }
     }
 
