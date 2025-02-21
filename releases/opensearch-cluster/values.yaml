@@ -3,6 +3,8 @@ cluster:
     serviceName: opensearch-cluster
     pluginsList:
       - repository-s3
+    additionalConfig:
+      plugins.repository.s3.allow_insecure_settings: true
   dashboards:
     enable: true
     resources:
