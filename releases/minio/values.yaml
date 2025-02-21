@@ -1,0 +1,20 @@
+auth:
+  rootUser: admin
+  rootPassword: admin
+provisioning:
+  enabled: true
+  buckets:
+    - name: opensearch-snapshots
+      policy: none
+      purge: false
+  resources:
+    requests:
+      cpu: 400m
+      memory: 512Mi
+    limits:
+      cpu: 1
+      memory: 1024Mi
+
+persistence:
+  enabled: true
+  size: 2Gi
