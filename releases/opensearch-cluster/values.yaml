@@ -5,22 +5,22 @@ cluster:
     enable: true
     resources:
       requests:
-          memory: "500Mi"
-          cpu: "200m"
+        memory: "500Mi"
+        cpu: "200m"
       limits:
-          memory: "800Mi"
-          cpu: "500m"
+        memory: "800Mi"
+        cpu: "500m"
   nodePools:
     - component: masters
       diskSize: "2Gi"
       replicas: 3
       resources:
-          requests:
-            memory: "600Mi"
-            cpu: "500m"
-          limits:
-            memory: "1Gi"
-            cpu: "800m"
+        requests:
+          memory: "600Mi"
+          cpu: "500m"
+        limits:
+          memory: "1Gi"
+          cpu: "800m"
       roles:
         - "cluster_manager"
         - "data"
