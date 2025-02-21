@@ -1,6 +1,6 @@
 auth:
   rootUser: admin
-  rootPassword: admin
+  rootPassword: minioadmin
 provisioning:
   enabled: true
   buckets:
