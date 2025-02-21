@@ -11,3 +11,9 @@ provisioning:
 persistence:
   enabled: true
   size: 2Gi
+
+extraEnvVars:
+- name: MINIO_DEBUG
+  value: "true"
+- name: BITNAMI_DEBUG
+  value: "true"
