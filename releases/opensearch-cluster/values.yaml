@@ -9,9 +9,9 @@ cluster:
       settings:
         bucket: opensearch-snapshots
         base_path: os-snapshot
-        endpoint: https://minio.minio:9000
+        endpoint: http://minio.minio:9000
         path_style_access: "true"
-        protocol: https
+        protocol: http
     keystore:
     - secret:
         name: opensearch-credentials
