@@ -17,6 +17,12 @@ logstashPipeline:
         port => 514
         id => "my_first_syslog"
       }
+      file {
+        # Tail Kubernetes logs
+        path => "/var/log/containers/*.log"
+        start_position => "beginning"  # Start from the beginning of the file (for debugging/testing)
+        sincedb_path => "/dev/null"    # Disable sincedb to prevent state tracking between restarts
+      }
     }
 
     output {
