@@ -7,7 +7,7 @@ spec:
   project: default
   sources:
   - repoURL: registry-1.docker.io/bitnamicharts
-    targetRevision: 15.0.4
+    targetRevision: 15.0.5
     chart: minio
     helm:
       releaseName: minio
