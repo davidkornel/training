@@ -30,21 +30,9 @@ logstashPipeline:
     }
 
     filter {
-      # Basic parsing and cleaning
-      json {
-        source => "message"
-        skip_on_invalid_json => true
-      }
-      
-      # Remove empty/null fields
-      ruby {
-        code => "
-          event.to_hash.each do |k,v|
-            if v.nil? || (v.is_a?(String) && v.empty?)
-              event.remove(k)
-            end
-          end
-        "
+      # Basic cleanup if needed
+      mutate {
+        remove_field => [ "@timestamp", "@version" ]
       }
     }
 
@@ -56,6 +44,5 @@ logstashPipeline:
         user => "admin"
         password => "admin"
         ssl_certificate_verification => false
-        template_overwrite => true
       }
     }
