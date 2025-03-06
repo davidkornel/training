@@ -24,7 +24,7 @@ logstashPipeline:
     input {
       tcp {
         port => 5514
-        codec => "line"
+        codec => json_lines
         id => "logging-operator-tcp"
       }
     }
