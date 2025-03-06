@@ -28,6 +28,7 @@ logstashPipeline:
     }
 
     output {
+      stdout { codec => rubydebug }
       opensearch {
         hosts => ["https://opensearch-cluster.opensearch:9200"]
         index => "syslog-%{+YYYY.MM.dd}"
