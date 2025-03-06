@@ -9,4 +9,4 @@ clusterOutputs:
       syslog:
         host: logstash-logstash.logstash.svc
         port: 5514
-        insecure: true
+        #insecure: true

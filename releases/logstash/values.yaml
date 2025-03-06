@@ -24,7 +24,6 @@ logstashPipeline:
       syslog {
         port => 5514
         id => "logging-operator-syslog"
-        type => "tcp"
       }
     }
 
