@@ -8,5 +8,7 @@ clusterOutputs:
   - name: logstash-tcp
     spec:
       forward:
-        host: logstash-logstash.logstash.svc
-        port: 5514
+        servers:
+          - host: logstash-logstash.logstash.svc
+            port: 5514
+        transport: tcp
