@@ -9,5 +9,4 @@ clusterOutputs:
       syslog:
         host: logstash-logstash.logstash.svc
         port: 5514
-        protocol: tcp # I don't think that a valid field
         insecure: true
