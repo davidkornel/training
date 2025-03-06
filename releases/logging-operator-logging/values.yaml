@@ -1,0 +1,12 @@
+clusterFlows:
+  - name: all-pods
+    spec:
+      globalOutputRefs:
+        - logstash-syslog
+clusterOutputs:
+  - name: logstash-syslog
+    spec:
+      syslog:
+        host: logstash-logstash.svc
+        port: 5514
+        insecure: true
