@@ -1,33 +1,33 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: logstash
-  namespace: argocd
-spec:
-  project: default
-  sources:
-  - repoURL: https://helm.elastic.co
-    targetRevision: 8.5.1
-    chart: logstash
-    helm:
-      releaseName: logstash
-      valueFiles:
-      - $values-repo/releases/logstash/values.yaml
-  - repoURL: https://github.com/davidkornel/training.git
-    targetRevision: HEAD
-    ref: values-repo
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: logstash
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-      allowEmpty: false
-    syncOptions:     # Sync options which modifies sync behavior
-    - Validate=true # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
-    - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
-    - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
-    - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
-    - ApplyOutOfSyncOnly=true #general
-    # - ServerSideApply=true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: logstash
+#   namespace: argocd
+# spec:
+#   project: default
+#   sources:
+#   - repoURL: https://helm.elastic.co
+#     targetRevision: 8.5.1
+#     chart: logstash
+#     helm:
+#       releaseName: logstash
+#       valueFiles:
+#       - $values-repo/releases/logstash/values.yaml
+#   - repoURL: https://github.com/davidkornel/training.git
+#     targetRevision: HEAD
+#     ref: values-repo
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: logstash
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#       allowEmpty: false
+#     syncOptions:     # Sync options which modifies sync behavior
+#     - Validate=true # disables resource validation (equivalent to 'kubectl apply --validate=false') ( true by default ).
+#     - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
+#     - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+#     - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
+#     - ApplyOutOfSyncOnly=true #general
+#     # - ServerSideApply=true
