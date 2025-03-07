@@ -8,7 +8,7 @@ spec:
   sources:
   - repoURL: https://istio-release.storage.googleapis.com/charts
     targetRevision: 1.25.0
-    chart: istio
+    chart: istiod
     helm:
       releaseName: istio
       valueFiles:
