@@ -12,7 +12,7 @@ clusterOutputs:
         port: 9200
         user: admin
         password:
-          value: admin
+          value: YWRtaW4=
         scheme: http
         index_name: kubernetes-logs
         ssl_verify: false
