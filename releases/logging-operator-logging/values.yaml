@@ -11,8 +11,11 @@ clusterFlows:
 clusterOutputs:
   - name: logstash-tcp
     spec:
-      forward:
-        servers:
-          - host: logstash-logstash.logstash.svc
-            port: 5514
-        transport: tcp
+      opensearch:
+        host: opensearch-cluster.opensearch
+        port: 9200
+        user: admin
+        password: admin
+        scheme: http
+        index_name: kubernetes-logs
+        ssl_verify: false
