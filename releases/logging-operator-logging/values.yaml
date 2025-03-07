@@ -15,7 +15,8 @@ clusterOutputs:
         host: opensearch-cluster.opensearch
         port: 9200
         user: admin
-        password: admin
+        password:
+          value: admin
         scheme: http
         index_name: kubernetes-logs
         ssl_verify: false
