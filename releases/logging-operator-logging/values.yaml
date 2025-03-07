@@ -1,6 +1,10 @@
 clusterFlows:
   - name: all-pods
     spec:
+      match:
+        - select:
+            labels:
+              app.kubernetes.io/name: logging-operator
       globalOutputRefs:
         - logstash-tcp
 
