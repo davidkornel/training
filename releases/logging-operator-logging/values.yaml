@@ -17,6 +17,6 @@ clusterOutputs:
         user: admin
         password:
           value: admin
-        scheme: http
+        scheme: https
         index_name: kubernetes-logs
         ssl_verify: false
