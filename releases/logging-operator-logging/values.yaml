@@ -12,7 +12,10 @@ clusterOutputs:
         port: 9200
         user: admin
         password:
-          value: YWRtaW4=
-        scheme: http
+          valueFrom:
+            secretKeyRef:
+              name: logging-operator-opensearch-credential
+              key: password
+        scheme: https
         index_name: kubernetes-logs
         ssl_verify: false
