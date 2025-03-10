@@ -16,6 +16,7 @@ clusterOutputs:
             secretKeyRef:
               name: logging-operator-opensearch-credential
               key: password
-        scheme: http
+        scheme: https
         index_name: k8s-logs-03-10
         ssl_verify: false
+        ssl_version: TLSv1_2
