@@ -4,14 +4,14 @@ cluster:
     pluginsList:
       - repository-s3
     snapshotRepositories:
-    - name: opensearch-snapshots
-      type: s3
-      settings:
-        bucket: opensearch-snapshots
-        base_path: os-snapshot
-        endpoint: http://minio.minio:9000
-        path_style_access: "true"
-        protocol: http
+      - name: "opensearch-snapshots"
+        type: s3
+        settings:
+          bucket: opensearch-snapshots
+          base_path: os-snapshot
+          path_style_access: "true"
+          endpoint: https://minio.minio:9000
+          protocol: https
     keystore:
     - secret:
         name: opensearch-credentials
@@ -19,6 +19,19 @@ cluster:
         # Renames key accessKey in secret to s3.client.default.access_key in keystore
         accessKey: s3.client.default.access_key
         password: s3.client.default.secret_key
+    additionalVolumes:
+      - path: "/usr/share/opensearch/config/ca.crt"
+        subPath: "ca.crt"
+        name: cacert
+        secret:
+          secretName: minio-crt
+          items:
+          - key: ca.crt
+            path: "ca.crt"
+            mode: 0400
+    additionalConfig:
+      plugins.security.ssl.http.truststore_filepath: "ca.crt"
+      plugins.security.ssl.transport.truststore_filepath: "ca.crt"
 
   dashboards:
     enable: true

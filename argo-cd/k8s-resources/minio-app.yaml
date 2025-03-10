@@ -18,7 +18,7 @@ spec:
     ref: values-repo
   destination:
     server: https://kubernetes.default.svc
-    namespace: minio
+    namespace: opensearch
   syncPolicy:
     automated:
       prune: true
