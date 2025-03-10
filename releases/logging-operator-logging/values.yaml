@@ -17,5 +17,5 @@ clusterOutputs:
               name: logging-operator-opensearch-credential
               key: password
         scheme: https
-        index_name: kubernetes-logs
+        index_name: k8s-logs-03-10
         ssl_verify: false
