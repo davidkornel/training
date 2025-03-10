@@ -8,7 +8,7 @@ logging:
           - record_transformer:
               enable_ruby: true
               records:
-                - key: app_
+                - key: $.kubernetes.labels.app_
                   value: ${record.dig('kubernetes', 'labels', 'app')}
               remove_keys: $.kubernetes.labels.app
         globalOutputRefs:
