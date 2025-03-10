@@ -10,7 +10,7 @@ logging:
               records:
                 - key: $.kubernetes.labels.app_
                   value: ${record.dig('kubernetes', 'labels', 'app')}
-              remove_keys: $.kubernetes.labels.app
+              remove_keys: $.kubernetes.labels.app,$.kubernetes.labels.istio
         globalOutputRefs:
           - opensearch-output
 
