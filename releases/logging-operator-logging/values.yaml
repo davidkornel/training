@@ -2,10 +2,10 @@ clusterFlows:
   - name: all-pods
     spec:
       globalOutputRefs:
-        - logstash-tcp
+        - opensearch-output
 
 clusterOutputs:
-  - name: logstash-tcp
+  - name: opensearch-output
     spec:
       opensearch:
         host: opensearch-cluster.opensearch
