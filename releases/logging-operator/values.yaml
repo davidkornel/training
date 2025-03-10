@@ -12,9 +12,12 @@ logging:
                   value: ${record.dig('kubernetes', 'labels', 'app')}
               remove_keys: $.kubernetes.labels.app
         globalOutputRefs:
-          - opensearch-output
+          - stdout
 
   clusterOutputs:
+    - name: stdout
+      spec:
+        stdout
     - name: opensearch-output
       spec:
         opensearch:
@@ -31,3 +34,4 @@ logging:
           ssl_verify: false
           ssl_version: TLSv1_2
           log_os_400_reason: true
+          with_transporter_log: true
