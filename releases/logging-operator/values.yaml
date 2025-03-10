@@ -12,12 +12,9 @@ logging:
                   value: ${record.dig('kubernetes', 'labels', 'app')}
               remove_keys: $.kubernetes.labels.app
         globalOutputRefs:
-          - stdout
+          - opensearch-output
 
   clusterOutputs:
-    - name: stdout
-      spec:
-        stdout
     - name: opensearch-output
       spec:
         opensearch:
