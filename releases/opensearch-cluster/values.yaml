@@ -3,6 +3,7 @@ cluster:
     serviceName: opensearch-cluster
     pluginsList:
       - repository-s3
+    version: 2.19.1
     snapshotRepositories:
       - name: "opensearch-snapshots"
         type: s3
