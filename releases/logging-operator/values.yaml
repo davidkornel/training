@@ -4,9 +4,6 @@ logging:
   clusterFlows:
     - name: all-pods
       spec:
-        filterNamespaces:
-          - default
-          - opensearch
         filters:
           - record_transformer:
               enable_ruby: true
