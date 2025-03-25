@@ -4,6 +4,9 @@ logging:
   clusterFlows:
     - name: all-pods
       spec:
+        filterNamespaces:
+          - default
+          - opensearch
         filters:
           - record_transformer:
               enable_ruby: true
@@ -35,12 +38,17 @@ logging:
           log_os_400_reason: false
           with_transporter_log: false
           buffer:
-            timekey: 10s
-            timekey_wait: 5s
-            chunk_limit_size: 2MB
-            total_limit_size: 256MB
-            retry_max_times: 3
-            retry_wait: 1s
-            flush_thread_count: 2
-            flush_mode: immediate
-            #flush_interval: 5s
+            timekey: 5s
+            timekey_wait: 1s
+            chunk_limit_size: 5MB
+            total_limit_size: 1GB
+            retry_max_times: 5
+            retry_wait: 2s
+            flush_thread_count: 4
+            flush_mode: interval
+            flush_interval: 1s
+            overflow_action: block  # Prevents data loss by blocking new records
+            retry_type: exponential_backoff
+            retry_exponential_backoff_base: 2
+            retry_max_interval: 30
+            disable_retry_limit: false
