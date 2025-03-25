@@ -43,4 +43,4 @@ logging:
             retry_wait: 1s
             flush_thread_count: 2
             flush_mode: immediate
-            flush_interval: 5s
+            #flush_interval: 5s
