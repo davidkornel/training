@@ -2,19 +2,27 @@ logging:
   enabled: true
 
   clusterFlows:
-    - name: all-pods
+    - name: openthemis
       spec:
-        filters:
-          - record_transformer:
-              enable_ruby: true
-              records:
-                - key: $.kubernetes.labels.app_
-                  value: ${record.dig('kubernetes', 'labels', 'app')}
-              remove_keys: $.kubernetes.labels.app
-          - record_transformer:
-              remove_keys: $.kubernetes.labels.istio
+        match:
+          - select:
+              labels:
+                app: openthemis
         globalOutputRefs:
           - opensearch-output
+    # - name: all-pods
+    #   spec:
+    #     filters:
+    #       - record_transformer:
+    #           enable_ruby: true
+    #           records:
+    #             - key: $.kubernetes.labels.app_
+    #               value: ${record.dig('kubernetes', 'labels', 'app')}
+    #           remove_keys: $.kubernetes.labels.app
+    #       - record_transformer:
+    #           remove_keys: $.kubernetes.labels.istio
+    #     globalOutputRefs:
+    #       - opensearch-output
 
   clusterOutputs:
     - name: opensearch-output
