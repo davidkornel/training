@@ -10,19 +10,23 @@ logging:
                 app: openthemis
         globalOutputRefs:
           - opensearch-output
-    # - name: all-pods
-    #   spec:
-    #     filters:
-    #       - record_transformer:
-    #           enable_ruby: true
-    #           records:
-    #             - key: $.kubernetes.labels.app_
-    #               value: ${record.dig('kubernetes', 'labels', 'app')}
-    #           remove_keys: $.kubernetes.labels.app
-    #       - record_transformer:
-    #           remove_keys: $.kubernetes.labels.istio
-    #     globalOutputRefs:
-    #       - opensearch-output
+    - name: test-client-logger-pod
+      spec:
+        match:
+          - select:
+              labels:
+                app: client
+        filters:
+          - record_transformer:
+              enable_ruby: true
+              records:
+                - key: $.kubernetes.labels.app_
+                  value: ${record.dig('kubernetes', 'labels', 'app')}
+              remove_keys: $.kubernetes.labels.app
+          - record_transformer:
+              remove_keys: $.kubernetes.labels.istio
+        globalOutputRefs:
+          - opensearch-output
 
   clusterOutputs:
     - name: opensearch-output
